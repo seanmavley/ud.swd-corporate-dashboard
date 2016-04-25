@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="corp">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Corporate Dashboard</title>
+    <!-- css -->
+    <link rel="stylesheet" type="text/css" href="vendor/Materialize/dist/css/materialize.min.css">
+    <!-- javascript -->
+    <script type="text/javascript" src="vendor/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="vendor/angular/angular.min.js"></script>
+    <script type="text/javascript" src="vendor/angular-route/angular-route.min.js"></script>
+    <script type="text/javascript" src="vendor/Materialize/dist/js/materialize.min.js"></script>
+    <script type="text/javascript" src="scripts/init.js"></script>
+    <script type="text/javascript" src="service.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+    <!-- icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="hide-on-small-only">
+                <a class='btn blue lighten-1 hide-on-small-only' href="#/"> Home </a>
+                <a class='btn blue lighten-1 hide-on-small-only' href="#/view2"> View 2 </a>
+                <a class='btn blue lighten-1 hide-on-small-only' href="#/view3"> View 3 </a>
+            </div>
+            <!-- Dropdown Trigger -->
+            <a class='dropdown-button btn hide-on-med-and-up' data-activates='mobile-menu'>Menu</a>
+            <!-- Dropdown Structure -->
+            <ul id='mobile-menu' class='dropdown-content'>
+                <li><a href="#!">View 1</a></li>
+                <li><a href="#!">View 2</a></li>
+                <li><a href="#!">View 3</a></li>
+            </ul>
+            <div class="divider blue dark-1" style="margin-bottom:15px;"></div>
+        </div>
+        <div ng-view></div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,16 @@
+{
+  "name": "corporate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "browser-sync": "^2.12.4",
+    "gulp": "^3.9.1",
+    "gulp-load-plugins": "^1.2.2"
+  }
+}
