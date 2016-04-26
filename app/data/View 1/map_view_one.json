@@ -1,0 +1,191 @@
+{
+    "map": {
+        "animation": "0",
+        "showcanvasborder": "0",
+        "showshadow": "0",
+        "showbevel": "0",
+        "showlabels": "0",
+        "showmarkerlabels": "1",
+        "fillcolor": "F1f1f1",
+        "bordercolor": "CCCCCC",
+        "basefont": "Verdana",
+        "basefontsize": "10",
+        "markerbordercolor": "000000",
+        "markerbgcolor": "FF5904",
+        "markerradius": "6",
+        "legendposition": "bottom",
+        "usehovercolor": "0",
+        "showentitytooltip": "0",
+        "showmarkertooltip": "1",
+        "tooltipbgcolor": "666666",
+        "tooltipbordercolor": "CCCCCC"
+    },
+    "data": [
+        {
+            "id": "NA"
+        },
+        {
+            "id": "SA"
+        },
+        {
+            "id": "EU"
+        },
+        {
+            "id": "AS"
+        },
+        {
+            "id": "AF"
+        },
+        {
+            "id": "AU"
+        }
+    ],
+    "markers": {
+        "definition": [
+            {
+                "id": "CA",
+                "x": "116.65",
+                "y": "94.85",
+                "label": "Sales Office",
+                "labelpos": "top"
+            },
+            {
+                "id": "US",
+                "x": "131.57",
+                "y": "133.22",
+                "label": "Headquarters",
+                "labelpos": "bottom"
+            },
+            {
+                "id": "CN",
+                "x": "532.3",
+                "y": "150.68",
+                "label": "Call Center",
+                "labelpos": "bottom"
+            },
+            {
+                "id": "BR",
+                "x": "228.55",
+                "y": "276.03",
+                "label": "Production Center",
+                "labelpos": "bottom"
+            },
+            {
+                "id": "AU",
+                "x": "621.83",
+                "y": "311.21",
+                "label": "Q & A",
+                "labelpos": "bottom"
+            },
+            {
+                "id": "RU",
+                "x": "532.3",
+                "y": "76.73",
+                "label": "Back Office",
+                "labelpos": "bottom"
+            },
+            {
+                "id": "IN",
+                "x": "499.26",
+                "y": "202.5",
+                "label": "Accounts",
+                "labelpos": "bottom"
+            }
+        ],
+        "shapes": [
+            {
+                "id": "USMap",
+                "type": "image",
+                "url": "Resources/us_flag.jpg",
+                "labelpadding": "12"
+            },
+            {
+                "id": "CAMap",
+                "type": "image",
+                "url": "Resources/canada_flag.jpg",
+                "labelpadding": "12"
+            },
+            {
+                "id": "CNMap",
+                "type": "image",
+                "url": "Resources/china_flag.jpg",
+                "labelpadding": "12"
+            },
+            {
+                "id": "BRMap",
+                "type": "image",
+                "url": "Resources/brazil_flag.jpg",
+                "labelpadding": "12"
+            },
+            {
+                "id": "AUMap",
+                "type": "image",
+                "url": "Resources/aus_flag.jpg",
+                "labelpadding": "12"
+            },
+            {
+                "id": "RUMap",
+                "type": "image",
+                "url": "Resources/rus_flag.jpg",
+                "labelpadding": "12"
+            },
+            {
+                "id": "INMap",
+                "type": "image",
+                "url": "Resources/ind_flag.jpg",
+                "labelpadding": "12"
+            }
+        ],
+        "application": [
+            {
+                "id": "CA",
+                "shapeid": "CAMap",
+                "tooltext": "Canada
+2 Managers
+11 Staff"
+            },
+            {
+                "id": "US",
+                "shapeid": "USMap",
+                "tooltext": "United States
+CEO, CFO, 3 Managers
+26 Staff"
+            },
+            {
+                "id": "CN",
+                "shapeid": "CNMap",
+                "tooltext": "China
+1 Manager
+7 Support Staff"
+            },
+            {
+                "id": "BR",
+                "shapeid": "BRMap",
+                "tooltext": "Brazil
+COO, 2 Managers
+32 Factory Staff"
+            },
+            {
+                "id": "AU",
+                "shapeid": "AUMap",
+                "tooltext": "Australia
+1 Manager
+(Outsourced Agency)"
+            },
+            {
+                "id": "RU",
+                "shapeid": "RUMap",
+                "tooltext": "Russia
+1 Manager
+6 Staff"
+            },
+            {
+                "id": "IN",
+                "shapeid": "INMap",
+                "tooltext": "India
+1 Manager
+5 Accountants"
+            }
+        ]
+    }
+}
