@@ -1,4 +1,6 @@
 <div class="row" ng-controller="view3">
+    <script type="text/javascript">
+    </script>
     <link rel="stylesheet" href="styles/style.css">
     <div class="col s12">
         <div class="card material-table">
@@ -7,12 +9,17 @@
                 <div class="actions">
                     <a class="search-toggle waves-effect btn-flat nopadding"><i class="material-icons">search</i></a>
                 </div>
+                <div class="hiddensearch">
+                    <div id="datatable_filter" class="dataTables_filter">
+                        <input type="search" class="input-field col s12" ng-model="searchTable" placeholder="Enter Keywords Here" class="validate">
+                    </div>
+                </div>
             </div>
-            <div class="alert alert-info">
+            <!-- <div>
                 <p>Sort Type: {{ sortType }}</p>
                 <p>Sort Reverse: {{ sortReverse }}</p>
                 <p>Search Query: {{ searchFish }}</p>
-            </div>
+            </div> -->
             <table class="bordered highlight responsive-table">
                 <thead>
                     <tr>
@@ -29,7 +36,7 @@
                             </a>
                         </th>
                         <th>
-                        <a ng-click="sortType = 'email'; sortReverse = !sortReverse">Email
+                            <a ng-click="sortType = 'email'; sortReverse = !sortReverse">Email
                             <i ng-show="sortType == 'email' && !sortReverse" class="material-icons">keyboard_arrow_down</i>
                             <i ng-show="sortType == 'email' && sortReverse" class="material-icons">keyboard_arrow_up</i>
                             </a>
@@ -49,7 +56,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="report in reports | orderBy:sortType:sortReverse">
+                    <tr ng-repeat="report in reports | orderBy:sortType:sortReverse | filter: searchTable">
                         <td>{{ report.report_date }}</td>
                         <td>{{ report.company }}</td>
                         <td>{{ report.email }}</td>
