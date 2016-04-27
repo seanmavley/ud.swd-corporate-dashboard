@@ -1,0 +1,70 @@
+{
+    "chart": {
+        "caption": "Number of reported issues",
+        "subCaption": "Past year",
+        "xAxisName": "Months of 2015",
+        "yAxisName": "Issues reported",
+        // "numberPrefix": "$",
+        "paletteColors": "#0075c2",
+        "bgColor": "#ffffff",
+        "borderAlpha": "20",
+        "canvasBorderAlpha": "0",
+        "usePlotGradientColor": "0",
+        "plotBorderAlpha": "10",
+        "placevaluesInside": "1",
+        "rotatevalues": "1",
+        "valueFontColor": "#ffffff",
+        "showXAxisLine": "1",
+        "xAxisLineColor": "#999999",
+        "divlineColor": "#999999",
+        "divLineIsDashed": "1",
+        "showAlternateHGridColor": "0",
+        "subcaptionFontBold": "0",
+        "subcaptionFontSize": "14"
+    },
+    "data": [{
+        "label": "Jan",
+        "value": "10"
+    }, {
+        "label": "Feb",
+        "value": "70"
+    }, {
+        "label": "Mar",
+        "value": "50"
+    }, {
+        "label": "Apr",
+        "value": "10"
+    }, {
+        "label": "May",
+        "value": "5"
+    }, {
+        "label": "Jun",
+        "value": "20"
+    }, {
+        "label": "Jul",
+        "value": "5"
+    }, {
+        "label": "Aug",
+        "value": "45"
+    }, {
+        "label": "Sep",
+        "value": "12"
+    }, {
+        "label": "Oct",
+        "value": "19"
+    }, {
+        "label": "Nov",
+        "value": "3"
+    }, {
+        "label": "Dec",
+        "value": "20"
+    }],
+    "trendlines": [{
+        "line": [{
+            "startvalue": "700000",
+            "color": "#1aaf5d",
+            "valueOnRight": "1",
+            "displayvalue": "Monthly Target"
+        }]
+    }]
+}
