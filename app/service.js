@@ -1,9 +1,9 @@
 angular.module('FileService', [])
     
-    .factory('dataLoad', [function(){
+    .factory('dataLoad', ['$http', function($http){
         return {
-            getView: function (text) {
-                return 'Saying hello from ' + text;
+            getData3: function (text) {
+                return $http.get('data/view3/data.json');
             }
         };
     }])
