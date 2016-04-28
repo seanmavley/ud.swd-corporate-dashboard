@@ -4,7 +4,6 @@
         "subCaption": "Past year",
         "xAxisName": "Months of 2015",
         "yAxisName": "Issues reported",
-        // "numberPrefix": "$",
         "paletteColors": "#0075c2",
         "bgColor": "#ffffff",
         "borderAlpha": "20",
