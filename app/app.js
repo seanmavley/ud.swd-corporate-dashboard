@@ -31,15 +31,15 @@ angular.module('corp', ['ngRoute', 'FileService', 'ng-fusioncharts'])
             $scope.Zoomline = data;
         });
 
-  $scope.applySettings = function() {
-    if($scope.settings) {
-      $scope.Zoomline.chart.caption = $scope.settings.title;
-      $scope.Zoomline.chart.subCaption = $scope.settings.subtitle;
-      $scope.Zoomline.chart.paletteColors = $scope.settings.color;
-    } else {
-      Materialize.toast('Kindly select some settings', 5000);
+    $scope.applySettingsOne = function() {
+        if ($scope.settings.one) {
+            $scope.Zoomline.chart.caption = $scope.settings.one.title;
+            $scope.Zoomline.chart.subCaption = $scope.settings.one.subtitle;
+            $scope.Zoomline.chart.paletteColors = $scope.settings.one.color;
+        } else {
+            Materialize.toast('Kindly select some settings', 5000);
+        }
     }
-  }
 
 
     // create empty object. Without it, "No data to display" error
@@ -48,6 +48,16 @@ angular.module('corp', ['ngRoute', 'FileService', 'ng-fusioncharts'])
         .success(function(data) {
             $scope.Bar = data;
         });
+
+    $scope.applySettingsTwo = function() {
+        if ($scope.settings.two) {
+            $scope.Bar.chart.caption = $scope.settings.two.title;
+            $scope.Bar.chart.subCaption = $scope.settings.two.subtitle;
+            $scope.Bar.chart.paletteColors = $scope.settings.two.color;
+        } else {
+            Materialize.toast('Kindly select some settings', 5000);
+        }
+    }
 }])
 
 .controller('view3', ['$scope', 'dataLoad', function($scope, dataLoad) {
