@@ -7,6 +7,7 @@ angular.module('appController', [])
             .success(function(data) {
                 $scope.myMap = data;
             });
+            
 
         $scope.applySettings = function() {
             if ($scope.settings) {

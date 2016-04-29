@@ -1,5 +1,6 @@
 angular.module('corp', ['ngRoute', 'appController', 'FileService', 'ng-fusioncharts'])
 
+
 .config(['$routeProvider', function($routeProvider) {
     $routeProvider
         .when('/', {
@@ -28,6 +29,7 @@ angular.module('appController', [])
             .success(function(data) {
                 $scope.myMap = data;
             });
+            
 
         $scope.applySettings = function() {
             if ($scope.settings) {

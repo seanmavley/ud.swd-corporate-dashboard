@@ -1,5 +1,6 @@
 angular.module('corp', ['ngRoute', 'appController', 'FileService', 'ng-fusioncharts'])
 
+
 .config(['$routeProvider', function($routeProvider) {
     $routeProvider
         .when('/', {

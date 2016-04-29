@@ -20,12 +20,11 @@ gulp.task('scripts', function() {
         .pipe(gulp.dest(jsDest));
 });
 
-// connect to browser-sync and reload
-// upon changes to the html files
 gulp.task('serve', function() {
     browser.init({ server: 'app/', port: port });
-    gulp.watch('app/*.html').on('change', browser.reload);
+    // watch and rebuild scripts
+    gulp.watch('app/**/*.*', ['scripts'])
+      .on('change', browser.reload);
 });
 
-// crank up the gears!
 gulp.task('default', ['serve']);
