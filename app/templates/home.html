@@ -7,8 +7,35 @@
                 </span>
             </div>
         </div>
+        <form class="col m12">
+            <div class="row">
+                <div class="input-field col m6">
+                    <input id="title" type="text" ng-model="settings.title" class="validate">
+                    <label for="title">Title Graph 1</label>
+                </div>
+                <div class="input-field col m6">
+                    <input id="subtitle" type="text" ng-model="settings.subtitle" class="validate">
+                    <label for="subtitle">Subtitle Graph 1</label>
+                </div>
+                <!-- {{ settings }} -->
+                <div class="input-field col m6">
+                    <p class="flow-text">Choose graph color</p>
+                    <input name="group1" type="radio" value="#ff0000" id="red" ng-model="settings.color" />
+                    <label for="red">Red</label>
+                    <input name="group1" type="radio" checked value="#008000" id="green" ng-model="settings.color"/>
+                    <label for="green">Green</label>
+                    <input name="group1" type="radio" value="#000000" id="black" ng-model="settings.color" />
+                    <label for="black">Black</label>
+                </div>
+                <div class="input-field col s6">
+                    <a ng-click="applySettings()" class="btn">Apply Changes</a>
+                </div>
+            </div>
+        </form>
         <div class="col s12">
-            <div id="chart-container">FusionCharts will render here</div>
+            <fusioncharts width="600" height="400" type="maps/world" dataSource="{{ myMap }}">
+            Fusion Charts will render here
+            </fusioncharts>
         </div>
     </div>
     <script type="text/javascript" src="data/fusion/fusioncharts.js"></script>
@@ -16,79 +43,6 @@
     <script type="text/javascript" src="data/fusion/fusioncharts.theme.fint.js"></script>
     <script type="text/javascript" src="data/fusion/fusioncharts.world.js"></script>
     <script type="text/javascript">
-    FusionCharts.ready(function() {
-        var airportsMap = new FusionCharts({
-            type: 'maps/world',
-            renderAt: 'chart-container',
-            width: '600',
-            height: '400',
-            dataFormat: 'json',
-            dataSource: {
-                "chart": {
-                    "caption": "Various company locations",
-                    "subcaption": "With employees numbers",
-                    "theme": "fint",
-                    "markerBgColor": "#8479F2",
-                    "markerRadius": "10",
-                    "showMarkerLabels": "1",
-                    "entityFillColor": "#A8A8A8",
-                    "entityFillHoverColor": "#C9C9CC"
-                },
-                "markers": {
-                    "shapes": [{
-                        "id": "roundShape",
-                        "type": "circle",
-                        "fillcolor": "FFFFFF",
-                        "showborder": "1",
-                        "radius": "2"
-                    }],
-                    "items": [{
-                            "id": "acc",
-                            "shapeid": "roundShape",
-                            "x": "340.23",
-                            "y": "245.9",
-                            "label": "Accra",
-                            "tooltext": "Headquarters, Ghana {br}Employees : 250",
-                            "labelpos": "left"
-                        }, {
-                            "id": "lon",
-                            "shapeid": "roundShape",
-                            "x": "340.23",
-                            "y": "125.9",
-                            "label": "London",
-                            "tooltext": "England {br}Employees: 20",
-                            "labelpos": "left"
-                        }, {
-                            "id": "za",
-                            "shapeid": "roundShape",
-                            "x": "368.23",
-                            "y": "330.9",
-                            "label": "Cape Town",
-                            "tooltext": "South Africa {br}Employees: 40",
-                            "labelpos": "left"
-                        }, {
-                            "id": "alt",
-                            "shapeid": "roundShape",
-                            "x": "90.14",
-                            "y": "155.9",
-                            "label": "San Franscisco",
-                            "tooltext": "United States {br} Employees: 30",
-                            "labelpos": "bottom"
-                        }, {
-                            "id": "dub",
-                            "shapeid": "roundShape",
-                            "x": "458.14",
-                            "y": "203.9",
-                            "label": "Dubai",
-                            "tooltext": "United Arab Emirates {br} Employees: 10",
-                            "labelpos": "bottom"
-                        }
 
-                    ]
-
-                }
-            }
-        }).render();
-    });
     </script>
 </div>

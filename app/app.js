@@ -20,7 +20,22 @@ angular.module('corp', ['ngRoute', 'FileService', 'ng-fusioncharts'])
 }])
 
 .controller('view1', ['$scope', 'dataLoad', function($scope, dataLoad) {
-    // $scope.data = dataLoad.getView('text');
+    // create empty object. Without it, "No data to display" error
+    $scope.myMap = {};
+    dataLoad.getData('view1', 'data.json')
+        .success(function(data) {
+            $scope.myMap = data;
+        });
+
+        $scope.applySettings = function() {
+        if ($scope.settings) {
+            $scope.myMap.chart.caption = $scope.settings.title;
+            $scope.myMap.chart.subCaption = $scope.settings.subtitle;
+            $scope.myMap.chart.entityFillColor = $scope.settings.color;
+        } else {
+            Materialize.toast('Kindly select some settings', 5000);
+        }
+    }
 }])
 
 .controller('view2', ['$scope', 'dataLoad', function($scope, dataLoad) {

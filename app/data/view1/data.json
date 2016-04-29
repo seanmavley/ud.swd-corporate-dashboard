@@ -1,0 +1,65 @@
+{
+    "chart": {
+        "caption": "Various company locations",
+        "subcaption": "With employees numbers",
+        "theme": "fint",
+        "markerBgColor": "#8479F2",
+        "markerRadius": "10",
+        "showMarkerLabels": "1",
+        "entityFillColor": "#A8A8A8",
+        "entityFillHoverColor": "#C9C9CC"
+    },
+    "markers": {
+        "shapes": [{
+            "id": "roundShape",
+            "type": "circle",
+            "fillcolor": "FFFFFF",
+            "showborder": "1",
+            "radius": "2"
+        }],
+        "items": [{
+                "id": "acc",
+                "shapeid": "roundShape",
+                "x": "340.23",
+                "y": "245.9",
+                "label": "Accra",
+                "tooltext": "Headquarters, Ghana {br}Employees : 250",
+                "labelpos": "left"
+            }, {
+                "id": "lon",
+                "shapeid": "roundShape",
+                "x": "340.23",
+                "y": "125.9",
+                "label": "London",
+                "tooltext": "England {br}Employees: 20",
+                "labelpos": "left"
+            }, {
+                "id": "za",
+                "shapeid": "roundShape",
+                "x": "368.23",
+                "y": "330.9",
+                "label": "Cape Town",
+                "tooltext": "South Africa {br}Employees: 40",
+                "labelpos": "left"
+            }, {
+                "id": "alt",
+                "shapeid": "roundShape",
+                "x": "90.14",
+                "y": "155.9",
+                "label": "San Franscisco",
+                "tooltext": "United States {br} Employees: 30",
+                "labelpos": "bottom"
+            }, {
+                "id": "dub",
+                "shapeid": "roundShape",
+                "x": "458.14",
+                "y": "203.9",
+                "label": "Dubai",
+                "tooltext": "United Arab Emirates {br} Employees: 10",
+                "labelpos": "bottom"
+            }
+
+        ]
+
+    }
+}
