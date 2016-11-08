@@ -1,23 +1,14 @@
 <!DOCTYPE html>
 <html ng-app="corp">
+
 <head>
+    <base href="/">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Corporate Dashboard</title>
     <!-- css -->
     <link rel="stylesheet" type="text/css" href="vendor/Materialize/dist/css/materialize.min.css">
-
-    <!-- vendors -->
-    <script type="text/javascript" src="vendor/jquery/dist/jquery.min.js"></script>
-    <script type="text/javascript" src="vendor/angular/angular.js"></script>
-    <script type="text/javascript" src="vendor/angular-route/angular-route.js"></script>
-    <script type="text/javascript" src="data/fusion/angular-fusioncharts.min.js"></script>
-    <script type="text/javascript" src="vendor/Materialize/dist/js/materialize.min.js"></script>
-
-    <!-- app js -->
-    <script type="text/javascript" src="build/corp.dashboard.min.js"></script>
-
     <!-- icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
@@ -26,9 +17,9 @@
     <div class="container">
         <div class="row">
             <div class="hide-on-small-only">
-                <a class='btn blue lighten-1 hide-on-small-only' href="#/"> Home </a>
-                <a class='btn blue lighten-1 hide-on-small-only' href="#/view2"> View 2 </a>
-                <a class='btn blue lighten-1 hide-on-small-only' href="#/view3"> View 3 </a>
+                <a class='btn blue lighten-1 hide-on-small-only' href="/"> Home </a>
+                <a class='btn blue lighten-1 hide-on-small-only' href="/view2"> View 2 </a>
+                <a class='btn blue lighten-1 hide-on-small-only' href="/view3"> View 3 </a>
             </div>
             <!-- Dropdown Trigger -->
             <a class='dropdown-button btn hide-on-med-and-up' data-activates='mobile-menu'>Menu</a>
@@ -42,6 +33,14 @@
         </div>
         <div ng-view></div>
     </div>
+    <!-- vendors -->
+    <script type="text/javascript" src="vendor/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="vendor/angular/angular.js"></script>
+    <script type="text/javascript" src="vendor/angular-route/angular-route.js"></script>
+    <script type="text/javascript" src="data/fusion/angular-fusioncharts.min.js"></script>
+    <script type="text/javascript" src="vendor/Materialize/dist/js/materialize.min.js"></script>
+    <!-- app js -->
+    <script type="text/javascript" src="build/corp.dashboard.min.js"></script>
 </body>
 
 </html>
