@@ -20,16 +20,27 @@ angular.module('appController', [])
   }
 }])
 
-.controller('view2', ['$scope', 'dataLoad', function($scope, dataLoad) {
+.controller('view2', ['$scope', 'dataLoad', '$interval', function($scope, dataLoad, $interval) {
   // create empty object. Without it, "No data to display" error
   $scope.Zoomline = {};
-  dataLoad.getData('view2', 'data1.json')
-    .success(function(data) {
-      $scope.Zoomline = data;
-    });
+
+  function refresh() {
+    dataLoad.getData('view2', 'data1.json')
+      .success(function(data) {
+        $scope.Zoomline = data;
+      });
+  }
+
+  // load first time
+  refresh();
+
+  $interval(function() {
+    console.log('Refreshed data after 60 seconds');
+    refresh();
+  }, 60000); // load refresh() every 1 minute
 
   $scope.applySettingsOne = function() {
-    if ($scope.settings.one) {
+    if ($scope.settings) {
       $scope.Zoomline.chart.caption = $scope.settings.one.title;
       $scope.Zoomline.chart.subCaption = $scope.settings.one.subtitle;
       $scope.Zoomline.chart.paletteColors = $scope.settings.one.color;
@@ -78,7 +89,7 @@ angular.module('appController', [])
         }
         return current;
       })
-      
+
       $scope.reports = result;
 
       // result = arrayData.map(function(a, _, aa) {
