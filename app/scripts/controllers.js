@@ -1,6 +1,6 @@
 angular.module('appController', [])
 
-.constant('refreshTime', 50000000)
+.constant('refreshTime', 5000) // 5 seconds
 
 .controller('view1', ['$scope', 'dataLoad', 'refreshTime', '$interval',
   function($scope, dataLoad, refreshTime, $interval) {
