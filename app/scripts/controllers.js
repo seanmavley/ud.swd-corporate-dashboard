@@ -1,43 +1,68 @@
 angular.module('appController', [])
 
-.controller('view1', ['$scope', 'dataLoad', function($scope, dataLoad) {
-  // create empty object. Without it, "No data to display" error
-  $scope.myMap = {};
-  dataLoad.getData('view1', 'data.json')
-    .success(function(data) {
-      $scope.myMap = data;
-    });
+.constant('refreshTime', 5000)
 
+.controller('view1', ['$scope', 'dataLoad', 'refreshTime', '$interval',
+  function($scope, dataLoad, refreshTime, $interval) {
+    // create empty object. Without it, "No data to display" error
+    $scope.myMap = {};
 
-  $scope.applySettings = function() {
-    if ($scope.settings) {
-      $scope.myMap.chart.caption = $scope.settings.title;
-      $scope.myMap.chart.subCaption = $scope.settings.subtitle;
-      $scope.myMap.chart.entityFillColor = $scope.settings.color;
-    } else {
-      Materialize.toast('Kindly select some settings', 5000);
+    function refresh() {
+      console.log('View 1 Data (re)loaded.');
+      dataLoad.getData('view1', 'data.json')
+        .success(function(data) {
+          $scope.myMap = data;
+        });
+    }
+
+    var intervalPromise = $interval(function() {
+      console.log('Refreshed data after 5 seconds');
+      refresh();
+    }, refreshTime); // load refresh() every 5 minute
+
+    refresh();
+
+    $scope.$on('$destroy', function() {
+      console.log('Interval cancelled');
+      $interval.cancel(intervalPromise);
+    })
+
+    $scope.applySettings = function() {
+      if ($scope.settings) {
+        $scope.myMap.chart.caption = $scope.settings.title;
+        $scope.myMap.chart.subCaption = $scope.settings.subtitle;
+        $scope.myMap.chart.entityFillColor = $scope.settings.color;
+      } else {
+        Materialize.toast('Kindly select some settings', 5000);
+      }
     }
   }
-}])
+])
 
 .controller('view2', ['$scope', 'dataLoad', '$interval', function($scope, dataLoad, $interval) {
   // create empty object. Without it, "No data to display" error
   $scope.Zoomline = {};
 
   function refresh() {
+    console.log('View 2 Data (re)loaded.');
+    // refresh was called
     dataLoad.getData('view2', 'data1.json')
       .success(function(data) {
         $scope.Zoomline = data;
       });
   }
 
-  // load first time
   refresh();
 
-  $interval(function() {
-    console.log('Refreshed data after 60 seconds');
+  var intervalPromise = $interval(function() {
+    console.log('Refreshed data after 5 seconds');
     refresh();
-  }, 60000); // load refresh() every 1 minute
+  }, 5000); // load refresh() every 5 minute
+
+  $scope.$on('$destroy', function() {
+    console.log('Interval cancelled');
+    $interval.cancel(intervalPromise);
+  })
 
   $scope.applySettingsOne = function() {
     if ($scope.settings) {
@@ -48,7 +73,6 @@ angular.module('appController', [])
       Materialize.toast('Kindly select some settings', 5000);
     }
   }
-
 
   // create empty object. Without it, "No data to display" error
   $scope.Bar = {};
@@ -68,37 +92,55 @@ angular.module('appController', [])
   }
 }])
 
-.controller('view3', ['$scope', 'dataLoad', 'csvToArray', function($scope, dataLoad, csvToArray) {
-  $scope.sortType = 'company';
-  $scope.sortReverse = false;
-  $scope.searchTable = '';
+.controller('view3', ['$scope', 'dataLoad', 'csvToArray', '$interval', 'refreshTime',
+  function($scope, dataLoad, csvToArray, $interval, refreshTime) {
+    $scope.sortType = 'company';
+    $scope.sortReverse = false;
+    $scope.searchTable = '';
 
-  dataLoad.getData('view3', 'data.csv')
-    .success(function(data) {
-      var arrayData = csvToArray(data);
+    function refresh() {
+      console.log('View Data 3 (re)loaded');
+      dataLoad.getData('view3', 'data.csv')
+        .success(function(data) {
+          var arrayData = csvToArray(data);
 
-      // Both approaches work.
-      // See discussion here: 
-      // http://stackoverflow.com/questions/40489345/transform-all-array-keys-with-values-from-another-array
+          // Both approaches work.
+          // See discussion here: 
+          // http://stackoverflow.com/questions/40489345/transform-all-array-keys-with-values-from-another-array
 
-      var keys = arrayData.shift();
-      var result = arrayData.map(function(row) {
-        var current = {};
-        for (var i = 0; i < keys.length; i++) {
-          current[keys[i]] = row[i];
-        }
-        return current;
-      })
+          var keys = arrayData.shift();
+          var result = arrayData.map(function(row) {
+            var current = {};
+            for (var i = 0; i < keys.length; i++) {
+              current[keys[i]] = row[i];
+            }
+            return current;
+          })
 
-      $scope.reports = result;
+          $scope.reports = result;
 
-      // result = arrayData.map(function(a, _, aa) {
-      //   var object = {};
-      //   aa[0].forEach(function(key, i) {
-      //     object[key] = a[i];
-      //   });
-      //   return object;
-      // }).slice(1);
+          // result = arrayData.map(function(a, _, aa) {
+          //   var object = {};
+          //   aa[0].forEach(function(key, i) {
+          //     object[key] = a[i];
+          //   });
+          //   return object;
+          // }).slice(1);
 
-    });
-}])
+        })
+    }
+
+    var intervalPromise = $interval(function() {
+      console.log('Refreshed data after 5 seconds');
+      refresh();
+    }, refreshTime); // load refresh() every 5 minute
+
+    // load first time
+    refresh();
+
+    $scope.$on('$destroy', function() {
+      console.log('Interval cancelled');
+      $interval.cancel(intervalPromise);
+    })
+  }
+])

@@ -16,14 +16,20 @@ var jsFiles = 'app/scripts/**/*.js',
 gulp.task('scripts', function() {
   return gulp.src(jsFiles)
     .pipe(concat('corp.darshboard.js'))
+    .on('error', function(e) {
+      console.log(e);
+    })
     .pipe(gulp.dest(jsDest))
     .pipe(rename('corp.dashboard.min.js'))
     .pipe(uglify())
+    .on('error', function(e) {
+      console.log(e);
+    })
     .pipe(gulp.dest(jsDest));
 });
 
 // server and run in browser
-gulp.task('serve', function() {
+gulp.task('serve', ['scripts'], function() {
   browser.init({
     server: 'app/',
     port: port,
@@ -31,8 +37,8 @@ gulp.task('serve', function() {
     middleware: [historyApiFallback()] 
   });
   // watch and rebuild scripts
-  gulp.watch('app/**/*.*', ['scripts'])
-    .on('change', browser.reload);
+  gulp.watch('app/**/*.js', ['scripts'])
+    .on('change', browser.reload)
 });
 
 gulp.task('default', ['serve']);
