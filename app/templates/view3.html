@@ -49,7 +49,7 @@
                             <i ng-show="sortType == 'status' && !sortReverse" class="material-icons">keyboard_arrow_down</i>
                             <i ng-show="sortType == 'status' && sortReverse" class="material-icons">keyboard_arrow_up</i>
                             </a>
-                        </th>                        
+                        </th>
                         <th>By</th>
                     </tr>
                 </thead>
@@ -59,7 +59,9 @@
                         <td>{{ report.company }}</td>
                         <td>{{ report.email }}</td>
                         <td title="{{ report.description }}">{{ report.description }}</td>
-                        <td>{{ report['status/state'] ? 'Open' : 'Closed' }} <br> <small>{{ report['status/timestamp'] }}</small></td>
+                        <td>{{ report['status/state'] }}
+                            <br>
+                            <small ng-if="report['status/state'] == 'Closed'">{{ report['status/timestamp'] }}</small></td>
                         <td>{{ report['name/first'] }}</td>
                     </tr>
                 </tbody>
