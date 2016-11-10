@@ -1,6 +1,5 @@
 angular.module('corp', ['ngRoute', 'appController', 'FileService', 'ng-fusioncharts'])
 
-
 .config(['$routeProvider', '$locationProvider',
   function($routeProvider, $locationProvider) {
 
