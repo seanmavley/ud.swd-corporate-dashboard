@@ -1,87 +1,98 @@
-<div ng-controller="view2">
-    <style type="text/css">
-    .metrics {
-        font-size: 3em;
-        padding: 0px;
-        margin: 0px;
-    }
-    </style>
-    <div class="row">
-        <div class="col s12">
-            <div class="card-panel">
-                <span class="flow-text center-align">
+<div class="container">
+    <div ng-controller="view2">
+        <style type="text/css">
+        .metrics {
+            font-size: 3em;
+            padding: 0px;
+            margin: 0px;
+        }
+        </style>
+        <div class="row">
+            <div class="col s12">
+                <div class="card-panel">
+                    <span class="flow-text center-align">
                 A “key metrics” view of company and operations <br>
                 <small>Data is refreshed every 60 seconds</small>
                 </span>
-            </div>
-        </div>
-        <div class="col m3">
-            <div class="center-align">
-                <span class="flow-text">Open Issues</span>
-                <div class="divider"></div>
-                <p class="metrics">400</p>
-            </div>
-        </div>
-        <form class="col m9">
-            <div class="row">
-                <div class="input-field col m6">
-                    <input id="title" type="text" ng-required ng-model="settings.one.title" class="validate">
-                    <label for="title">Title Graph 1</label>
-                </div>
-                <div class="input-field col m6">
-                    <input id="subtitle" type="text" ng-required ng-model="settings.one.subtitle" class="validate">
-                    <label for="subtitle">Subtitle Graph 1</label>
-                </div>
-                <div class="input-field col m6">
-                    <p class="flow-text">Choose graph color</p>
-                    <input name="group1" type="radio" value="#ff0000" id="red" ng-model="settings.one.color" />
-                    <label for="red">Red</label>
-                    <input name="group1" type="radio" value="#008000" id="green" ng-model="settings.one.color" />
-                    <label for="green">Green</label>
-                    <input name="group1" type="radio" value="#000000" id="black" ng-model="settings.one.color" />
-                    <label for="black">Black</label>
-                </div>
-                <div class="input-field col s6">
-                    <a ng-click="applySettingsOne()" class="btn">Apply Changes</a>
                 </div>
             </div>
-        </form>
-        <div class="col s12">
-            <fusioncharts width="100%" height="100%" type="zoomline" dataSource="{{ Zoomline }}">
-            </fusioncharts>
-        </div>
-        <form class="col m9">
-            <div class="row">
-                <div class="input-field col m6">
-                    <input id="title" type="text" ng-required ng-model="settings.two.title" class="validate">
-                    <label for="title">Title Graph 2</label>
-                </div>
-                <div class="input-field col m6">
-                    <input id="subtitle" type="text" ng-required ng-model="settings.two.subtitle" class="validate">
-                    <label for="subtitle">Subtitle Graph 2</label>
-                </div>
-                <!-- {{ settings }} -->
-                <div class="input-field col m6">
-                    <p class="flow-text">Choose graph color</p>
-                    <input name="group2" type="radio" value="#ff0000" id="red2" ng-model="settings.two.color" />
-                    <label for="red2">Red</label>
-                    <input name="group2" type="radio" value="#008000" id="green2" ng-model="settings.two.color" />
-                    <label for="green2">Green</label>
-                    <input name="group2" type="radio" value="#000000" id="black2" ng-model="settings.two.color" />
-                    <label for="black2">Black</label>
-                </div>
-                <div class="input-field col s6">
-                    <a ng-click="applySettingsTwo()" class="btn">Apply Changes</a>
+            <div class="col m3">
+                <div class="center-align">
+                    <span class="flow-text">Open Issues</span>
+                    <div class="divider"></div>
+                    <p class="metrics">400</p>
                 </div>
             </div>
-        </form>
-        <div class="col s12">
-            <fusioncharts width="100%" height="100%" type="column2d" dataSource="{{ Bar }}">
-            </fusioncharts>
+            <form class="col m9">
+                <div class="row">
+                    <div class="input-field col m6">
+                        <input id="title" type="text" ng-required ng-model="settings.one.title" class="validate">
+                        <label for="title">Title Graph 1</label>
+                    </div>
+                    <div class="input-field col m6">
+                        <input id="subtitle" type="text" ng-required ng-model="settings.one.subtitle" class="validate">
+                        <label for="subtitle">Subtitle Graph 1</label>
+                    </div>
+                    <div class="input-field col m6">
+                        <p class="flow-text">Choose graph color</p>
+                        <input name="group1" type="radio" value="#ff0000" id="red" ng-model="settings.one.color" />
+                        <label for="red">Red</label>
+                        <input name="group1" type="radio" value="#008000" id="green" ng-model="settings.one.color" />
+                        <label for="green">Green</label>
+                        <input name="group1" type="radio" value="#000000" id="black" ng-model="settings.one.color" />
+                        <label for="black">Black</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <a ng-click="applySettingsOne()" class="btn">Apply Changes</a>
+                    </div>
+                </div>
+            </form>
+            <div class="col s12 hide-on-small-only">
+                <fusioncharts width="100%" height="100%" type="zoomline" dataSource="{{ Zoomline }}">
+                </fusioncharts>
+            </div>
+            <div class="col s12 hide-on-med-and-up">
+                <fusioncharts width="370" type="zoomline" dataSource="{{ Zoomline }}">
+                </fusioncharts>
+            </div>
+            <form class="col m9">
+                <div class="row">
+                    <div class="input-field col m6">
+                        <input id="title" type="text" ng-required ng-model="settings.two.title" class="validate">
+                        <label for="title">Title Graph 2</label>
+                    </div>
+                    <div class="input-field col m6">
+                        <input id="subtitle" type="text" ng-required ng-model="settings.two.subtitle" class="validate">
+                        <label for="subtitle">Subtitle Graph 2</label>
+                    </div>
+                    <!-- {{ settings }} -->
+                    <div class="input-field col m6">
+                        <p class="flow-text">Choose graph color</p>
+                        <input name="group2" type="radio" value="#ff0000" id="red2" ng-model="settings.two.color" />
+                        <label for="red2">Red</label>
+                        <input name="group2" type="radio" value="#008000" id="green2" ng-model="settings.two.color" />
+                        <label for="green2">Green</label>
+                        <input name="group2" type="radio" value="#000000" id="black2" ng-model="settings.two.color" />
+                        <label for="black2">Black</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <a ng-click="applySettingsTwo()" class="btn">Apply Changes</a>
+                    </div>
+                </div>
+            </form>
+            <div class="col s12 hide-on-med-and-up">
+                <fusioncharts width="370" type="column2d" dataSource="{{ Bar }}">
+                </fusioncharts>
+            </div>
+            <div class="col s12 hide-on-small-only">
+                <fusioncharts width="100%" height="100%" type="column2d" dataSource="{{ Bar }}">
+                </fusioncharts>
+            </div>
+            <script type="text/javascript" src="data/fusion/fusioncharts.js"></script>
+            <script type="text/javascript" src="data/fusion/fusioncharts.maps.js"></script>
+            <script type="text/javascript" src="data/fusion/fusioncharts.theme.fint.js"></script>
+            <script type="text/javascript">
+            </script>
         </div>
-        <script type="text/javascript" src="data/fusion/fusioncharts.js"></script>
-        <script type="text/javascript" src="data/fusion/fusioncharts.maps.js"></script>
-        <script type="text/javascript" src="data/fusion/fusioncharts.theme.fint.js"></script>
-        <script type="text/javascript">
-        </script>
     </div>
+</div>

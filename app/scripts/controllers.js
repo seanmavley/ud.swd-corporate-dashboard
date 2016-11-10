@@ -1,13 +1,13 @@
 angular.module('appController', [])
 
-.constant('refreshTime', 5000)
+.constant('refreshTime', 50000000)
 
 .controller('view1', ['$scope', 'dataLoad', 'refreshTime', '$interval',
   function($scope, dataLoad, refreshTime, $interval) {
     // create empty object. Without it, "No data to display" error
     $scope.myMap = {};
 
-    function refresh() {
+    var refresh = function() {
       console.log('View 1 Data (re)loaded.');
       dataLoad.getData('view1', 'data.json')
         .success(function(data) {
@@ -18,7 +18,7 @@ angular.module('appController', [])
     var intervalPromise = $interval(function() {
       console.log('Refreshed data after 5 seconds');
       refresh();
-    }, refreshTime); // load refresh() every 5 minute
+    }, refreshTime);
 
     refresh();
 
@@ -39,11 +39,12 @@ angular.module('appController', [])
   }
 ])
 
-.controller('view2', ['$scope', 'dataLoad', '$interval', function($scope, dataLoad, $interval) {
+.controller('view2', ['$scope', 'dataLoad', '$interval', 'refreshTime',
+  function($scope, dataLoad, $interval, refreshTime) {
   // create empty object. Without it, "No data to display" error
   $scope.Zoomline = {};
 
-  function refresh() {
+  var refresh = function() {
     console.log('View 2 Data (re)loaded.');
     // refresh was called
     dataLoad.getData('view2', 'data1.json')
@@ -57,7 +58,7 @@ angular.module('appController', [])
   var intervalPromise = $interval(function() {
     console.log('Refreshed data after 5 seconds');
     refresh();
-  }, 5000); // load refresh() every 5 minute
+  }, refreshTime); // load refresh() every 5 minute
 
   $scope.$on('$destroy', function() {
     console.log('Interval cancelled');
@@ -98,7 +99,7 @@ angular.module('appController', [])
     $scope.sortReverse = false;
     $scope.searchTable = '';
 
-    function refresh() {
+    var refresh = function() {
       console.log('View Data 3 (re)loaded');
       dataLoad.getData('view3', 'data.csv')
         .success(function(data) {
