@@ -4,12 +4,14 @@ var gulp = require('gulp'),
   concat = require('gulp-concat'),
   rename = require('gulp-rename'),
   uglify = require('gulp-uglify'),
+  cleanCSS = require('gulp-clean-css'),
   historyApiFallback = require('connect-history-api-fallback');
 
 var port = process.env.SERVER_PORT || 3000;
 
 //script paths
 var jsFiles = 'app/scripts/**/*.js',
+  cssFiles = 'app/styles/**/*.css',
   jsDest = 'app/build';
 
 // build javascripts
@@ -28,8 +30,17 @@ gulp.task('scripts', function() {
     .pipe(gulp.dest(jsDest));
 });
 
+gulp.task('css', function() {
+  gulp.src(cssFiles)
+    .pipe(concat('corp.css'))
+    .pipe(gulp.dest('app/build'))
+    .pipe(rename('corp.min.css'))
+    .pipe(cleanCSS({ compatibility: 'ie8' }))
+    .pipe(gulp.dest('app/build'));
+})
+
 // server and run in browser
-gulp.task('serve', ['scripts'], function() {
+gulp.task('serve', ['scripts', 'css'], function() {
   browser.init({
     server: 'app/',
     port: port,
